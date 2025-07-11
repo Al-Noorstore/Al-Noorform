@@ -1,0 +1,247 @@
+/* Define CSS Variables for easier color management based on Al-Noor Store branding */
+:root {
+    --primary-orange: #FF8C00; /* Main accent color from your website buttons */
+    --dark-brown-orange: #4A2C00; /* Dark background from your website footer */
+    --light-grey-bg: #f0f2f5; /* General light background */
+    --white-bg: #ffffff; /* Container background */
+    --text-dark: #333;
+    --text-medium: #555;
+    --border-light: #ccc;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --product-summary-bg: #FFF3E0; /* Light orange/yellow background for product info */
+    --product-summary-border: #FFE0B2; /* Slightly darker border for product info */
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--light-grey-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--white-bg);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px var(--shadow-color);
+    width: 100%;
+    max-width: 550px;
+    box-sizing: border-box;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.header .logo {
+    max-width: 120px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 8px; /* Slightly rounded corners for the logo if it's a square/rectangle */
+}
+
+h1 {
+    color: var(--dark-brown-orange); /* Use the darker brand color for the main title */
+    font-size: 2.2em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.slogan {
+    color: var(--primary-orange); /* Use the accent color for the slogan */
+    font-size: 1.1em;
+    font-style: italic;
+    margin-top: -5px;
+    margin-bottom: 25px;
+}
+
+.product-info-summary {
+    background-color: var(--product-summary-bg);
+    border: 1px solid var(--product-summary-border);
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    font-size: 1.1em;
+    color: var(--text-dark);
+    font-weight: bold;
+    text-align: center;
+    display: flex; /* For aligning image and text */
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.product-info-summary img {
+    max-width: 80px; /* Smaller image in summary */
+    height: auto;
+    margin-right: 15px;
+    border-radius: 5px;
+    object-fit: contain; /* Ensure image fits well */
+}
+
+.product-info-summary p {
+    margin: 5px 0;
+}
+
+.product-info-summary .placeholder-message {
+    font-size: 0.9em;
+    color: var(--text-medium);
+    font-style: italic;
+    font-weight: normal;
+}
+
+
+form fieldset {
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 25px;
+    background-color: #fdfdfd; /* Slightly off-white for fieldset background */
+}
+
+form legend {
+    font-weight: bold;
+    color: var(--primary-orange); /* Orange for legend text */
+    padding: 0 10px;
+    font-size: 1.2em;
+    margin-left: -10px; /* Adjust to align with fieldset border */
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-medium);
+    font-size: 0.95em;
+}
+
+form input[type="text"],
+form input[type="tel"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid var(--border-light);
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+form input[type="text"]:focus,
+form input[type="tel"]:focus,
+form input[type="email"]:focus,
+form textarea:focus {
+    border-color: var(--primary-orange); /* Orange focus border */
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.3); /* Orange shadow on focus */
+    outline: none;
+}
+
+form textarea {
+    resize: vertical;
+    min-height: 60px;
+}
+
+/* Quantity Control Styling */
+.quantity-control {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.quantity-control button {
+    background-color: var(--primary-orange);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.quantity-control button:hover {
+    background-color: #e67e00;
+}
+
+.quantity-control input[type="number"] {
+    flex-grow: 1; /* Allows the input to take up available space */
+    text-align: center;
+    margin: 0 10px;
+    -moz-appearance: textfield; /* Hide arrows in Firefox */
+    appearance: textfield; /* Hide arrows in Chrome/Safari */
+}
+
+.quantity-control input[type="number"]::-webkit-outer-spin-button,
+.quantity-control input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+.radio-group {
+    margin-bottom: 15px;
+}
+
+.radio-group input[type="radio"] {
+    margin-right: 8px;
+}
+
+.radio-group label {
+    display: inline-block;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+.submit-button {
+    background-color: var(--primary-orange); /* Orange for "Place Order" button */
+    color: white;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out, transform 0.1s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: #e67e00; /* Slightly darker orange on hover */
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    background-color: #cc7100; /* Even darker orange on click */
+    transform: translateY(0);
+}
+
+/* Basic responsiveness */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+    form fieldset {
+        padding: 15px;
+    }
+    .product-info-summary {
+        flex-direction: column; /* Stack image and text on small screens */
+    }
+    .product-info-summary img {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
