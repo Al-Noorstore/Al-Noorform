@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Al-Noor Store Quick Order</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://i.ibb.co/tpS0w6p3/In-Shot-20250705-212327976.webp" alt="Al-Noor Store Logo" class="logo">
+            <h1>QUICK ORDER</h1>
+            <p class="slogan">Bringing Light to Your Life!</p>
+        </div>
+
+        <div id="product-display" class="product-info-summary">
+            <p class="placeholder-message">Loading product details... Please use the "Buy Now" button from the main store.</p>
+        </div>
+
+        <form id="order-form">
+            <input type="hidden" name="product_id" id="form-product-id">
+            <input type="hidden" name="product_name" id="form-product-name">
+            <input type="hidden" name="product_unit_price" id="form-product-price">
+            <input type="hidden" name="product_image_url" id="form-product-image-url">
+
+            <fieldset>
+                <legend>Product Details</legend>
+                <label for="displayProductName">Product Name:</label>
+                <input type="text" id="displayProductName" name="displayProductName" readonly>
+
+                <label for="displayProductPrice">Price:</label>
+                <input type="text" id="displayProductPrice" name="displayProductPrice" readonly>
+
+                <label for="productQuantity">Quantity:</label>
+                <div class="quantity-control">
+                    <button type="button" id="decreaseQuantity">-</button>
+                    <input type="number" id="productQuantity" name="productQuantity" value="1" min="1" readonly>
+                    <button type="button" id="increaseQuantity">+</button>
+                </div>
+                <input type="hidden" name="final_price" id="finalPrice">
+            </fieldset>
+
+            <fieldset>
+                <legend>Your Contact Details</legend>
+                <label for="customerName">Your Full Name:</label>
+                <input type="text" id="customerName" name="customerName" required>
+
+                <label for="customerPhone">Phone Number:</label>
+                <input type="tel" id="customerPhone" name="customerPhone" placeholder="e.g., 03XX-XXXXXXX" required>
+
+                <label for="customerEmail">Email Address (Optional):</label>
+                <input type="email" id="customerEmail" name="customerEmail">
+            </fieldset>
+
+            <fieldset>
+                <legend>Delivery Information</legend>
+                <label for="deliveryAddress">Street Address / House No.:</label>
+                <textarea id="deliveryAddress" name="deliveryAddress" rows="3" required></textarea>
+
+                <label for="deliveryLandmark">Landmark (Optional):</label>
+                <input type="text" id="deliveryLandmark" name="deliveryLandmark" placeholder="e.g., Near Main Market">
+
+                <label for="deliveryCity">City:</label>
+                <input type="text" id="deliveryCity" name="deliveryCity" required>
+
+                <label for="deliveryProvince">Province/State:</label>
+                <input type="text" id="deliveryProvince" name="deliveryProvince" placeholder="e.g., Punjab" required>
+            </fieldset>
+
+            <fieldset>
+                <legend>Payment Method</legend>
+                <div class="radio-group">
+                    <input type="radio" id="cod" name="paymentMethod" value="Cash on Delivery" checked>
+                    <label for="cod">Cash on Delivery (COD)</label><br>
+                    <input type="radio" id="online" name="paymentMethod" value="Online Payment (Not available yet)" disabled>
+                    <label for="online">Online Payment (Coming Soon)</label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Additional Notes (Optional)</legend>
+                <textarea id="orderNotes" name="orderNotes" rows="2" placeholder="e.g., Leave at gate if not home, specific time."></textarea>
+            </fieldset>
+
+            <button type="submit" class="submit-button">Place Order Now</button>
+            <p id="submission-status" style="margin-top:15px;"></p>
+        </form>
+    </div>
+    <script src="script.js"></script>
+</body>
+  </html>
