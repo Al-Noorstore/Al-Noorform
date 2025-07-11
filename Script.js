@@ -28,6 +28,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to update total price based on quantity
     function updateTotalPrice() {
         const quantity = parseInt(productQuantityInput.value);
+        
+        // Ensure quantity is a valid number and at least 1 before calculating
+        if (isNaN(quantity) || quantity < 1) {
+            productQuantityInput.value = 1;
+            quantity = 1;
+        }
+
         const totalPrice = unitPrice * quantity;
         displayProductPrice.value = `PKR ${unitPrice.toLocaleString('en-PK')} (Total: PKR ${totalPrice.toLocaleString('en-PK')})`;
         finalPriceInput.value = totalPrice; // Store calculated total price in hidden field
@@ -52,6 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
         displayProductName.value = productName;
         productQuantityInput.value = 1; // Default quantity
 
+        // Ensure the quantity input field is enabled if product details are loaded
+        productQuantityInput.disabled = false;
+        
         // Set hidden form field values, which will be submitted
         formProductId.value = productId || '';
         formProductName.value = productName;
@@ -60,6 +70,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Initial total price calculation
         updateTotalPrice();
+
+        // Event listener for manual quantity input
+        productQuantityInput.addEventListener('input', updateTotalPrice);
 
         // Event listeners for quantity buttons
         decreaseQuantityBtn.addEventListener('click', () => {
@@ -150,10 +163,13 @@ document.addEventListener('DOMContentLoaded', () => {
             </p>
         `;
         document.querySelector('button[type="submit"]').disabled = true;
-        // Also disable quantity controls if no product is loaded
+        
+        // Disable relevant input fields if no product is loaded
         if(displayProductName) displayProductName.disabled = true;
         if(displayProductPrice) displayProductPrice.disabled = true;
         if(productQuantityInput) productQuantityInput.disabled = true;
+        
+        // Also disable quantity controls if no product is loaded
         if(decreaseQuantityBtn) decreaseQuantityBtn.disabled = true;
         if(increaseQuantityBtn) increaseQuantityBtn.disabled = true;
     }
